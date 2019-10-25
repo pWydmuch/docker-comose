@@ -3,18 +3,16 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.example</groupId>
-	<artifactId>demo</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
-
-	<name>demo</name>
-	<description>Demo project for Spring Boot</description>
+    <groupId>pl.wydmuch</groupId>
+    <artifactId>solvro</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>solvro</name>
+    <description>Project for recruitment to solvro</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.5.2.RELEASE</version>
+		<version>2.2.0.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
@@ -42,6 +40,11 @@
 			<artifactId>postgresql</artifactId>
 			<version>42.0.0</version>
 		</dependency>
+		  <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>runtime</scope>
+        </dependency>
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
@@ -90,7 +93,7 @@
 							<build>
 								<dockerFileDir>${project.basedir}/src/main/docker</dockerFileDir>
 								<assembly>
-									<mode>dir</mode>
+									<mode>tar</mode>
 									<targetDir>/app</targetDir>
 									<descriptor>${project.basedir}/src/main/docker/assembly.xml</descriptor>
 								</assembly>
